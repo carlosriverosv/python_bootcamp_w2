@@ -14,10 +14,10 @@ def list_contacts(hidden=False):
       print("Age:",  contact.age)
       print("\n-----Phones-----\n")
       contact.printPhones()
-      print("-------------------\n")
+      print("-------------------\n \n")
 
 
-def addContact():
+def add_contact():
    """Add new contact"""
    print("\n------New Contact------\n")
    name = input("Name: ")
@@ -35,7 +35,7 @@ def addContact():
 
 def updateContact(hidden=False):
    """Update a contact"""
-   listContacts(hidden)
+   list_contacts(hidden)
    sel = (int)(input("Insert the number of the contact you want to update: "))
    cont = cont_list.contacts[sel - 1]
    print("\n------Contact options------\n")
@@ -73,7 +73,7 @@ def updateContact(hidden=False):
       email = input("Email: ")
       email = cont.email if email.strip() == '' else email
       cont.updateContact(name, last_name, cont.phones, age, email)
-
+      cont_list.save()
 
 option = 0
 while(option != 5):
@@ -85,15 +85,13 @@ while(option != 5):
    print("3. Update contact")
    print("4. List hidden contacts")
    print("5. Quit\n")
-
    option = int(input("Select an option: "))
    if option == 1:
-      listContacts()
+      list_contacts()
    elif option == 2:
-      addContact()
+      add_contact()
    elif option == 3:
       updateContact()
    elif option == 4:
-      listContacts(True)
-
-cont_list.save()
+      print("------Hidden contacts------")   
+      list_contacts(True)

@@ -1,7 +1,8 @@
-from Contact import *
-from Phone import *
-
 class ContactList:
-   contacts = []
 
+   def __init__(self):
+      self.contacts = []
+
+   def add(self, contact):
+      self.contacts.append(contact)
 

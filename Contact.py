@@ -1,3 +1,5 @@
+from datetime import datetime
+
 class Contact:
 
    def __init__(self, name, last_name, age, phone, email):
@@ -7,3 +9,8 @@ class Contact:
       self.phones = []
       self.phones.append(phone)
       self.email = email
+      self.created_at = datetime.now()
+      self.hidden = False
+
+   def setHidden(self, hidden):
+      self.hidden = hidden

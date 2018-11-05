@@ -4,7 +4,7 @@ from ContactList import *
 
 cont_list = ContactList()
 
-def listContacts(hidden=False):
+def list_contacts(hidden=False):
    """List hidden and not hidden contacts"""
    print("\n------Contact List------\n")
    pos = 0
@@ -13,10 +13,7 @@ def listContacts(hidden=False):
       print(pos,  ".",  contact.name, contact.last_name)
       print("Age:",  contact.age)
       print("\n-----Phones-----\n")
-      pos = 0
-      for ph in contact.phones:
-         pos += 1
-         print(pos, "." , ph.name, ph.number)
+      contact.printPhones()
       print("-------------------\n")
 
 
@@ -64,9 +61,18 @@ def updateContact(hidden=False):
       age = input("Age : ")
       age = cont.age if age.strip() == '' else age
       print("\n-----Phones-----\n")
-      pos = 0
-      for ph in cont.phones:
-         print(ph.name)
+      cont.printPhones()
+      sel = input("Insert the number of the phone you want to change, if not press enter: ")
+      if sel != '':
+            ph = cont.phones[(int)(sel) - 1]
+            phone_name = input("Name: ")
+            ph.name = ph.name if phone_name.strip() == '' else phone_name
+            phone_number = input("Number: ")
+            ph.number = ph.number if phone_number.strip() == '' else phone_number
+            cont.phones[(int)(sel) - 1] = ph
+      email = input("Email: ")
+      email = cont.email if email.strip() == '' else email
+      cont.updateContact(name, last_name, cont.phones, age, email)
 
 
 option = 0
@@ -89,3 +95,5 @@ while(option != 5):
       updateContact()
    elif option == 4:
       listContacts(True)
+
+cont_list.save()

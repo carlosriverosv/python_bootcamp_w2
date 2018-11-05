@@ -17,3 +17,20 @@ class Contact:
 
    def addPhone(self, phone):
       self.phones.append(phone)
+
+   def printPhones(self):
+      pos = 0
+      for phone in self.phones:
+         pos += 1
+         print(pos, "." , phone.name, phone.number)
+
+   def updateContact(self, name, last_name, phones, age, email):
+      self.name = name
+      self.last_name = last_name
+      self.age = age
+      self.phones = phones
+      self.email = email
+      self.created_at = datetime.now()
+      self.hidden = False
+
+      

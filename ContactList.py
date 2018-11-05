@@ -8,5 +8,5 @@ class ContactList:
       they always will be sorted by date of creation"""
       self.contacts.append(contact)
 
-   def getContacts(self):
-      return [contact for contact in self.contacts if not contact.hidden]
+   def getContacts(self, hidden):
+      return [contact for contact in self.contacts if contact.hidden == hidden]

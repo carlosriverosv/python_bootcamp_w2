@@ -14,3 +14,6 @@ class Contact:
 
    def setHidden(self, hidden):
       self.hidden = hidden
+
+   def addPhone(self, phone):
+      self.phones.append(phone)

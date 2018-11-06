@@ -27,7 +27,7 @@ class Contact:
          pos += 1
          print(pos, "." , phone.name, phone.number)
 
-   def updateContact(self, name, last_name, phones, age, email):
+   def update_contact(self, name, last_name, phones, age, email):
       """Update the information of a contact"""
       self.name = name
       self.last_name = last_name

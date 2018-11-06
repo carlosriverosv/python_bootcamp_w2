@@ -16,7 +16,6 @@ def list_contacts(hidden=False):
       contact.printPhones()
       print("---------------------------------\n \n")
 
-
 def validate_int(value):
    """validate integer values are provided when needed"""
    while True:
@@ -41,7 +40,7 @@ def add_contact():
    cont_list.add(contact)
 
 
-def updateContact(hidden=False):
+def update_contact(hidden=False):
    """Update a contact"""
    list_contacts(hidden)
    sel = validate_int("Insert the number of the contact you want to update: ")
@@ -85,7 +84,7 @@ def updateContact(hidden=False):
                   pass
             email = input("Email: ")
             email = cont.email if email.strip() == '' else email
-            cont.updateContact(name, last_name, cont.phones, age, email)
+            cont.update_contact(name, last_name, cont.phones, age, email)
             cont_list.save()
 
 option = 0
@@ -104,7 +103,7 @@ while(option != 5):
    elif option == 2:
       add_contact()
    elif option == 3:
-      updateContact()
+      update_contact()
    elif option == 4:
       print("------Hidden contacts------")   
       list_contacts(True)
